@@ -7,5 +7,6 @@ import androidx.room.PrimaryKey
 data class Student(
     @PrimaryKey(autoGenerate = false)
     val studentName:String,
-    val email:String
+    val email:String,
+    val collegeName:String
 )

@@ -4,6 +4,7 @@ import androidx.room.*
 import com.hamidreza.multipleroom.data.local.entities.College
 import com.hamidreza.multipleroom.data.local.entities.Manager
 import com.hamidreza.multipleroom.data.local.relations.CollegeAndManager
+import com.hamidreza.multipleroom.data.local.relations.CollegeWithStudents
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -18,5 +19,9 @@ interface CollegeDao {
     @Transaction
     @Query("SELECT * FROM College")
     fun getCollegeAndManagers() : Flow<List<CollegeAndManager>>
+
+    @Transaction
+    @Query("SELECT * FROM College")
+    fun getCollegeWithStudents() : Flow<List<CollegeWithStudents>>
 
 }
