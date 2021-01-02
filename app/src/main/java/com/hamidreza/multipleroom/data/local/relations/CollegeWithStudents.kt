@@ -11,5 +11,5 @@ data class CollegeWithStudents(
         parentColumn = "collegeName",
         entityColumn = "collegeName"
     )
-    val student:List<Student>
+    val students:List<Student>
 )
