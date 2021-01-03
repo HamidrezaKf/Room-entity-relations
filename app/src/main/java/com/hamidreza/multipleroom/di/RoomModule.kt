@@ -18,12 +18,11 @@ object RoomModule {
 
     @Provides
     @Singleton
-    fun provideCollegeDb(@ApplicationContext context: Context,
-    callBack:CollegeDataBase.CallBack):CollegeDataBase{
+    fun provideCollegeDb(@ApplicationContext context: Context):CollegeDataBase{
         return Room.databaseBuilder(context,
         CollegeDataBase::class.java,CollegeDataBase.DB_NAME)
             .fallbackToDestructiveMigration()
-            .addCallback(callBack).build()
+            .build()
     }
 
     @Provides
