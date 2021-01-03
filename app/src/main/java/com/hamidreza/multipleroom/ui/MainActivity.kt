@@ -25,9 +25,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        viewModel.result()/*
+        viewModel.result()
         binding.button.setOnClickListener {
+            val url = "https://github.com/HamidrezaKf/Room-entity-relations/blob/master/README.md"
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
-        }*/
+        }
     }
 }
