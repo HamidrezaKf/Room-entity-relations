@@ -58,7 +58,16 @@ class MainViewModel @ViewModelInject constructor(val dao:CollegeDao) : ViewModel
             dao.insertStudentCourse(StudentCourseCrossRef("Nima","Honar"))
 
             dao.getCollegeAndManagers().onEach {
-                Log.i("CollegeDataBase", "CollegeDataBase:${it} ")
+                Log.i("CollegeDataBase", "CollegeAndManagers:${it} ")
+            }.launchIn(viewModelScope)
+            dao.getCollegeWithStudents().onEach {
+                Log.i("CollegeDataBase", "CollegeWithStudents:${it} ")
+            }.launchIn(viewModelScope)
+            dao.getCoursesOfStudent().onEach {
+                Log.i("CollegeDataBase", "CoursesOfStudent:${it} ")
+            }.launchIn(viewModelScope)
+            dao.getStudentsOfCourse().onEach {
+                Log.i("CollegeDataBase", "StudentsOfCourse:${it} ")
             }.launchIn(viewModelScope)
         }
     }

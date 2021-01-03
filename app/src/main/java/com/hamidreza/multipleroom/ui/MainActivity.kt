@@ -1,5 +1,7 @@
 package com.hamidreza.multipleroom.ui
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -23,6 +25,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        viewModel.result()
+        viewModel.result()/*
+        binding.button.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+        }*/
     }
 }

@@ -26,24 +26,47 @@ interface CollegeDao {
     suspend fun insertCourse(course: Course)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertStudentCourse(crossRef:StudentCourseCrossRef)
+    suspend fun insertStudentCourse(crossRef: StudentCourseCrossRef)
+
 
     @Transaction
     @Query("SELECT * FROM College")
-    fun getCollegeAndManagers() : Flow<List<CollegeAndManager>>
+    fun getCollegeAndManagers(): Flow<List<CollegeAndManager>>
+/*
+    @Transaction
+    @Query("SELECT * FROM College WHERE collegeName=:collegeName")
+    fun getCollegeAndManagers(collegeName:String) : Flow<List<CollegeAndManager>>*/
+
+
 
     @Transaction
     @Query("SELECT * FROM College")
-    fun getCollegeWithStudents() : Flow<List<CollegeWithStudents>>
-
+    fun getCollegeWithStudents(): Flow<List<CollegeWithStudents>>
+/*
     @Transaction
-    @Query("SELECT * FROM Course")
-    fun getStudentsOfCourse() : Flow<List<CourseWithStudents>>
+    @Query("SELECT * FROM College WHERE collegeName=:collegeName")
+    fun getCollegeWithStudents(collegeName:String) : Flow<List<CollegeWithStudents>>*/
+
+
 
     @Transaction
     @Query("SELECT * FROM Student")
-    fun getCoursesOfStudent() : Flow<List<StudentWithCourses>>
+    fun getCoursesOfStudent(): Flow<List<StudentWithCourses>>
+
+    /*@Transaction
+    @Query("SELECT * FROM Student WHERE studentName = :studentName")
+    fun getCoursesOfStudent(studentName: String): Flow<List<StudentWithCourses>>*/
 
 
+
+
+    @Transaction
+    @Query("SELECT * FROM Course")
+    fun getStudentsOfCourse(): Flow<List<CourseWithStudents>>
+
+/*
+    @Transaction
+    @Query("SELECT * FROM Course WHERE courseName=:courseName")
+    fun getStudentsOfCourse(courseName:String) : Flow<List<CourseWithStudents>>*/
 
 }
